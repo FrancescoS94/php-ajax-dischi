@@ -1,9 +1,5 @@
-<!-- Milestone1: Stampiamo i dischi solo con l’utilizzo di PHP, che stampa direttamente i dischi in pagina:
-al caricamento della pagina ci saranno tutti i dischi. -->
-
-<?php
-include 'db.php';
-?>
+<!-- Milestone2: Attraverso l’utilizzo di AJAX: al caricamento della pagina ajax
+chiederà attraverso una chiamata i dischi a php e li stamperà attraverso handlebars. -->
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -23,16 +19,20 @@ include 'db.php';
         </header>
         <main>
             <div class="cds-container container">
-                <?php foreach ($database as $value) { ?>
-                    <div class="cd">
-                        <img src="<?php echo $value["poster"] ?>" alt="">
-                        <h3><?php echo $value["title"] ?></h3>
-                        <span class="author"><?php echo $value["author"] ?></span>
-                        <span class="year"><?php echo $value["year"] ?></span>
-                        </div>
-                <?php } ?>
+
             </div>
         </main>
+
+        <!-- HANDLEBARS -->
+        <script id="entry-template" type="text/x-handlebars-template">
+            <div class="cd">
+                <img src={{poster}} alt="">
+                <h3>{{title}}</h3>
+                <span class="author">{{author}}</span>
+                <span class="year">{{year}}</span>
+            </div>
+        </script>
+
     <script src="dist/app.js" charset="utf-8"></script>
     </body>
 </html>
